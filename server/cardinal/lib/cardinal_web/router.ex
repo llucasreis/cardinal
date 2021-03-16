@@ -7,6 +7,9 @@ defmodule CardinalWeb.Router do
 
   scope "/api", CardinalWeb do
     pipe_through :api
+
+    post "/users", UsersController, :create
+    get "/users/:id", UsersController, :get_by_id
   end
 
   # Enables LiveDashboard only for development
