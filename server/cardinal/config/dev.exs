@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :cardinal, Cardinal.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "p0stgr3s",
   database: "cardinal_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
