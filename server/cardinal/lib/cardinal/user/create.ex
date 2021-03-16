@@ -5,13 +5,6 @@ defmodule Cardinal.User.Create do
   def execute(params) do
     params
     |> User.changeset()
-    |> create_user()
-  end
-
-  defp create_user(changeset) do
-    case Repo.insert(changeset) do
-      {:error, changeset} -> {:error, changeset}
-      {:ok, changeset} -> {:ok, changeset}
-    end
+    |> Repo.insert()
   end
 end
