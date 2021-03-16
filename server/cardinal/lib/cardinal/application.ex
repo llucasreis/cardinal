@@ -6,6 +6,11 @@ defmodule Cardinal.Application do
   use Application
 
   def start(_type, _args) do
+    unless Mix.env() == :prod do
+      Envy.auto_load()
+      Envy.reload_config()
+    end
+
     children = [
       # Start the Ecto repository
       Cardinal.Repo,
