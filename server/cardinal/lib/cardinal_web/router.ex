@@ -11,6 +11,7 @@ defmodule CardinalWeb.Router do
     post "/users", UsersController, :create
     get "/users/:id", UsersController, :get_by_id
     delete "/users/:id", UsersController, :delete
+    put "/users/:id", UsersController, :update
   end
 
   # Enables LiveDashboard only for development
