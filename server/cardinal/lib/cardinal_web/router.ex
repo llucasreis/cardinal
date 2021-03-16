@@ -5,11 +5,22 @@ defmodule CardinalWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug CardinalWeb.Auth.Pipeline
+  end
+
   scope "/api", CardinalWeb do
     pipe_through :api
 
     post "/users", UsersController, :create
+    post "/users/signin", UsersController, :sign_in
+  end
+
+  scope "/api", CardinalWeb do
+    pipe_through [:api, :auth]
+
     get "/users/:id", UsersController, :get_by_id
+    get "/users/username/:username", UsersController, :get_by_username
     delete "/users/:id", UsersController, :delete
     put "/users/:id", UsersController, :update
   end

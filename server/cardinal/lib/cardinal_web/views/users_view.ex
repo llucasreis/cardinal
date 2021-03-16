@@ -2,7 +2,8 @@ defmodule CardinalWeb.UsersView do
   alias Cardinal.Schemas.User
 
   def render("create.json", %{
-        user: %User{id: id, username: username, email: email}
+        user: %User{id: id, username: username, email: email},
+        token: token
       }) do
     %{
       message: "User created",
@@ -10,7 +11,8 @@ defmodule CardinalWeb.UsersView do
         id: id,
         username: username,
         email: email
-      }
+      },
+      token: token
     }
   end
 
@@ -22,5 +24,9 @@ defmodule CardinalWeb.UsersView do
       username: username,
       email: email
     }
+  end
+
+  def render("sign_in.json", %{token: token}) do
+    %{token: token}
   end
 end
