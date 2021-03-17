@@ -14,6 +14,9 @@ defmodule CardinalWeb.Router do
 
     post "/users", UsersController, :create
     post "/users/signin", UsersController, :sign_in
+
+    get "/animes/search/:anime", AnimesController, :search_anime
+    post "/users/anime/add", UsersController, :add_anime
   end
 
   scope "/api", CardinalWeb do
