@@ -55,12 +55,4 @@ defmodule CardinalWeb.UsersController do
       |> render("show.json", user: user)
     end
   end
-
-  def add_anime(conn, params) do
-    with {:ok, anime} <- User.add_anime(params) do
-      conn
-      |> put_status(:ok)
-      |> json(anime)
-    end
-  end
 end
